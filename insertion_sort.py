@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-# Insertion sort uses an incremental approach.
+# Insertion sort uses an incremental approach. It is a comparison sort.
 # Usually efficient for sorting a small numbers of elements.
 # Or for nearly already sorted list
 # If n is the number of elements, then:
 # Worst Running Time: O(n^2), a quadratic function
 # Best Running Time: O(n), a linear function
+# by Vikas Prasad
 
 def iterative_insertion_sort(A):
     '''Sort A iteratively.'''

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-# Merge sort uses a recursive technqiue, divide & conquer
+# Merge sort is a comparison sort that uses a recursive technique, divide & conquer
 # It means dividing the given problem, into subproblem of same instance recursively
 # Until, we reach a base case where number of elements in the sub problem is only 1
 # And because of the fact, that 1 element squence is already sorted we simply return.
 # Once two subproblems are solved we combine their solutions to find the solution of the parent problem.
 # Running Time: O(n lgn), where n is the number of elements to be sorted.
+# by Vikas Prasad
 
 def merge(A, p, q, r):
     # Filling the subarrays L and R with elements of A

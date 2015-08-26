@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # Sorts the given list using insertion sort and binary search
+# by Vikas Prasad
+
 def binary_search(A, v, p, q):
     '''Search for the index to insert v in the sorted subarray A'''
     mid = (p + q) // 2

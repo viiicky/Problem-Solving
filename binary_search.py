@@ -6,6 +6,7 @@
 # An analogous example for binary search is searching
 # for the meaning of a word in the dictionary
 # or probably a name in a telephone directory
+# by Vikas Prasad
 
 def binary_search(A, v, p, q):
     mid = (p + q) // 2

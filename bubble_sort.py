@@ -6,6 +6,8 @@
 # of the fact that swapping takes much more time than just moving elements.
 # Even in the best case comparison, it is much inefficient than insertion sort,
 # because it takes way more comparisons than insertion sort.
+# by Vikas Prasad
+
 import argparse
 
 parser = argparse.ArgumentParser(description='Sorts A using bubble sort')

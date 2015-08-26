@@ -3,6 +3,7 @@
 # Worst Running Time: O(n^2)
 # Best Running Time: O(n^2), because of the fact that even if the element at i is already the smallest,
 # we have to go all the way long to check for the same.
+# by Vikas Prasad
 
 while True:
     A = [int(x) for x in input('Enter integers separated by space: ').split()]

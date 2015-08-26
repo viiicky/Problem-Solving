@@ -4,6 +4,7 @@
 # Prints None if v is not present in A at all.
 # Worst & Average running time: O(n)
 # Best running time: O(1)
+# by Vikas Prasad
 
 while True:
     try:

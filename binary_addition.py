@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Adds two n bit binary numbers A and B and stores result in n+1 bit C
 # Running time: O(n)
+# by Vikas Prasad
 
 # A = '1111'
 # B = '1111'

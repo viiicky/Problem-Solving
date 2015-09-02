@@ -32,21 +32,22 @@ def recursive_insertion_sort(A):
         n = len(A[: -1])
         insert(n)
 
-import argparse
+if __name__ == '__main__':
+    import argparse
 
-parser = argparse.ArgumentParser(description='sorts A using insertion sort, iterative in nature by default')
-group = parser.add_mutually_exclusive_group()
-group.add_argument('-r', '--recursive', action='store_true', help='uses a recursive approach for sorting')
-group.add_argument('-i', '--iterative', action='store_true', help='uses a iterative approach for sorting')
-parser.add_argument('integers', metavar='A', type=int, nargs='+', help='sequence of integers to be sorted')
+    parser = argparse.ArgumentParser(description='sorts A using insertion sort, iterative in nature by default')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-r', '--recursive', action='store_true', help='uses a recursive approach for sorting')
+    group.add_argument('-i', '--iterative', action='store_true', help='uses a iterative approach for sorting')
+    parser.add_argument('elements', metavar='A', type=float, nargs='+', help='sequence of elements to be sorted')
 
-args = parser.parse_args()
-A = args.integers
-# A = [5, 2, 4, 6, 1, 3]
-if args.recursive:
-    print('Sorting recursively...')
-    recursive_insertion_sort(A)
-else:
-    print('Sorting iteratively...')
-    iterative_insertion_sort(A)
-print(A)
+    args = parser.parse_args()
+    A = args.elements
+    # A = [5, 2, 4, 6, 1, 3]
+    if args.recursive:
+        print('Sorting recursively...')
+        recursive_insertion_sort(A)
+    else:
+        print('Sorting iteratively...')
+        iterative_insertion_sort(A)
+    print(A)

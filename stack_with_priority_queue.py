@@ -9,7 +9,7 @@ except ImportError as e:
     # print(e)
     print('Module heap is required for this script.')
     print('You can download the same at: ')
-    print('https://github.com/viiicky/Algorithms-Python/blob/master/heap.py')
+    print('https://github.com/viiicky/Interview-Preparation/blob/master/heap.py')
     exit()
 
 class data:

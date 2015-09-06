@@ -15,8 +15,8 @@ try:
     from link_list import *
 except ImportError:
     print('You need to make sure you have following modules, to run this script.')
-    print('insertion_sort: https://github.com/viiicky/Algorithms-Python/blob/master/insertion_sort.py')
-    print('link_list: https://github.com/viiicky/Algorithms-Python/blob/master/link_list.py')
+    print('insertion_sort: https://github.com/viiicky/Interview-Preparation/blob/master/insertion_sort.py')
+    print('link_list: https://github.com/viiicky/Interview-Preparation/blob/master/link_list.py')
     print('Please download the same and try again.')
     exit()
 

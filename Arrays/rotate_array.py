@@ -20,6 +20,28 @@ def rotate_by_new_array(array, d, n):
         new_array.append(array[i])
 
     return new_array
+
+def rotate_in_place(array, d, n):
+    # This solution will run in O(n)
+    # And the space required will be O(d%n)
+    d = d % n
+
+    # put the first d elements in a queue
+    queue = []
+    for i in range(d):
+        queue.append(array[i])
+
+    # shift elements after dth position from right to left
+    for i in range(n-d):
+        array[i] = array[i+d]
+
+    # moev left over elemets from the queue at the end place of the array
+    for i in range(n-d, n):
+        array[i] = queue.pop(0)
+
+    del(queue)
+
+    return array
     
 if __name__ == '__main__':
     T = int(input())
@@ -27,5 +49,5 @@ if __name__ == '__main__':
     for _ in range(T):
         n, d = map(int, input().split())
         array = input().split()
-        
-        print(' '.join(rotate_by_new_array(array, d, n)))
+
+        print(' '.join(rotate_in_place(array, d, n)))

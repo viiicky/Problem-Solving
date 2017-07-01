@@ -1,5 +1,6 @@
 # Write a program to reverse an array or string
 # We are given an array (or string), the task is to reverse the array.
+# Problem Link: http://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/
 
 def reverse_array(array):
     # This approach will run in O(n) time, but it will create a new array,

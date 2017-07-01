@@ -1,3 +1,6 @@
+# Program for array rotation
+# Write a function that rotates array of size n by d elements
+# Prolem Link: http://www.geeksforgeeks.org/array-rotation/
 def rotate_dynamic_array(array, d, n):
     d = d % n
     

@@ -14,6 +14,7 @@ class Node {
 /**
  * Given a Binary Tree, convert it into its mirror.
  * Time Complexity: O(n) where n is number of nodes present in the tree.
+ * Space Complexity: O(1)
  *
  * Problem Link: http://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
  */

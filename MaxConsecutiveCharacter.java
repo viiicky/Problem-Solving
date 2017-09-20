@@ -90,6 +90,33 @@ public class MaxConsecutiveCharacter {
         return maxChar;
     }
 
+    /**
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     *
+     * Inspired by method two of geeksforgeeks
+     */
+    private static char findMaxConsecutiveCharStartingLoopFrom0Index(String string){
+        char maxChar = 0;
+        int maxCharCount = 0;
+
+        int currentCharCount = 1;
+
+        for (int i=0; i<string.length() && currentCharCount + (string.length() - (i+1)) > maxCharCount; i++){
+            if (i<string.length()-1 && string.charAt(i) == string.charAt(i+1)){   // keep counting  // the if condition here is smart bit(inspired from geeksforgeeks)
+                currentCharCount += 1;
+            } else {    // streak ended
+                if (currentCharCount > maxCharCount){  // this streak breaks previous record?
+                    maxCharCount = currentCharCount;
+                    maxChar = string.charAt(i);
+                }
+                currentCharCount = 1;  // reset the count
+            }
+        }
+
+        return maxChar;
+    }
+
     private static void findMaxConsecutiveCharTest(){
         System.out.println("Testing findMaxConsecutiveChar()");
         System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveChar("geeekk") == 'e' ? "PASS" : "FAIL");
@@ -164,5 +191,42 @@ public class MaxConsecutiveCharacter {
         System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharUsingSentinel("ggeeekkaeekkkkccc") == 'k' ? "PASS" : "FAIL");
 
         System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharUsingSentinel("ggeeekkaeekkkkcccc") == 'k' ? "PASS" : "FAIL");
+
+        System.out.println("Testing findMaxConsecutiveCharStartingLoopFrom0Index()");
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("geeekk") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("aaaabbcbbb") == 'a' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("geeekk") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("geeekkaa") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("geeekkk") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("geeekkkk") == 'k' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("g") == 'g' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("gg") == 'g' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggg") == 'g' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeee") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekk") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekka") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekkaee") == 'e' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekkaeekkkk") == 'k' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekkaeekkkkc") == 'k' || MaxConsecutiveCharacter.findMaxConsecutiveCharUsingSentinel("ggeeekkaeekkkkc") == 'e'? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekkaeekkkkcc") == 'k' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekkaeekkkkccc") == 'k' ? "PASS" : "FAIL");
+
+        System.out.println(MaxConsecutiveCharacter.findMaxConsecutiveCharStartingLoopFrom0Index("ggeeekkaeekkkkcccc") == 'k' ? "PASS" : "FAIL");
     }
 }

@@ -110,7 +110,6 @@ public class Question4 {
         for (int i = 2; i < SIZE; i++) {
             int finalI = i;
             getDependencies(i).forEach(dep -> {
-                // get the relevant node
                 graph.nodes.get(finalI).outgoingNodes.add(graph.nodes.get(dep));
                 graph.nodes.get(dep).incomingNodes.add(graph.nodes.get(finalI));
             });
@@ -135,6 +134,7 @@ public class Question4 {
                     // create value list by solving for node's dependencies, as execute() requires actual values to work upon
                     List<Integer> depValues = new ArrayList<>();
                     neighbourNode.outgoingNodes.forEach(dep -> depValues.add(formulaeArray[dep.value]));
+
                     formulaeArray[neighbourNode.value] = execute(neighbourNode.value, depValues);
                     solvedNodes.add(neighbourNode);
                     System.out.println(String.format("Formulae array: %s", Arrays.toString(formulaeArray)));

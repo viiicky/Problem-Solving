@@ -1,7 +1,7 @@
 # Problem Solving
 This repository is to add solution to different problems related to Data Structures and Algorithms.
 
-Problems are taken from CLRS, careercup.com, pramp.com, glassdoor.com, geeksforgeeks.org, hackerrank.com etc.
+Problems are taken from CLRS, careercup.com, pramp.com, glassdoor.com, geeksforgeeks.org, hackerrank.com, leetcode.com etc.
 
 For Java solutions you might need to rename the file before using it.
 

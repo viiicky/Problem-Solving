@@ -24,3 +24,22 @@ class Solution:
             self.rangeSumBST(root.right, low, high)  # go to right
 
         return self.total
+
+
+class Solution2:
+    def rangeSumBST(self, root: TreeNode, low: int, high: int) -> int:
+        total = 0
+        stack = [root]
+
+        while stack:
+            node = stack.pop()
+            if low <= node.val <= high:
+                total += node.val
+
+            if node.val > low and node.left:
+                stack.append(node.left)
+
+            if node.val < high and node.right:
+                stack.append(node.right)
+
+        return total

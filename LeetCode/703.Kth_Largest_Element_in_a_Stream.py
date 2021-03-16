@@ -113,9 +113,41 @@ class KthLargest4:
         return heapq.nlargest(self.k, self.nums)[-1]
 
 
+class KthLargest5:
+    def __init__(self, k: int, nums: List[int]):
+        """Time complexity: O(N), where N is the number of elements in nums"""
+        self.k = k
+        self.nums = nums
+        # Given the input constraints there is a possibility that there are k-1 items in the input nums.
+        # In that case, just add a dummy value to match the size k.
+        self.nums.append(float('-inf'))
+
+        # If we can already find the k-th largest element from this initial array,
+        # prune everything smaller than the k-th largest element - those values are not going to be of interest, ever.
+        heapq.heapify(self.nums)
+        while len(self.nums) > self.k:
+            heapq.heappop(self.nums)
+
+    def add(self, val: int) -> int:
+        """Time complexity: O(logN), where N is the number of elements in nums"""
+        # The size of the heap is k right now, and we want to maintain this size of the heap
+        # so that we can easily return the k-th largest element by asking for the min element from the heap.
+        # So, just push this item, and then call pop on the heap to eliminate the extra "bad" item after this push.
+        #
+        # Moreover, if we think about it,
+        # in case the incoming value is already smaller or equal to the current minimum value in the heap,
+        # we don't even need to do the push-pop because it is the same item that would get pushed and then popped.
+        # Thus we can add the below condition to the else block.
+        # This way, we touch heap, only when we really need to, else, we do not disturb it.
+        if val > self.nums[0]:
+            heapq.heappushpop(self.nums, val)
+
+        return self.nums[0]
+
+
 class KthLargestTest(unittest.TestCase):
     def test_add(self):
-        kth_largest = KthLargest3(3, [4, 5, 8, 2])
+        kth_largest = KthLargest5(3, [4, 5, 8, 2])
         self.assertEqual(4, kth_largest.add(3))
         self.assertEqual(5, kth_largest.add(5))
         self.assertEqual(5, kth_largest.add(10))
@@ -123,7 +155,7 @@ class KthLargestTest(unittest.TestCase):
         self.assertEqual(8, kth_largest.add(4))
 
     def test_first_largest(self):
-        kth_largest = KthLargest3(1, [])
+        kth_largest = KthLargest5(1, [])
         self.assertEqual(3, kth_largest.add(3))
         self.assertEqual(5, kth_largest.add(5))
         self.assertEqual(10, kth_largest.add(10))

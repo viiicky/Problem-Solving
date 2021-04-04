@@ -35,12 +35,10 @@ class Solution:
         for i in range(k):
             row = Row(sum(mat[i]), i)
             heappush(heap, row)
-            print(heap)
 
         for row_pos, row_value in enumerate(mat[k:], start=k):
             value = Row(sum(row_value), row_pos)
             if value < -heap[0]:
                 heappushpop(heap, value)
-            print(heap)
 
         return [(-heappop(heap)).pos for _ in range(k)][::-1]

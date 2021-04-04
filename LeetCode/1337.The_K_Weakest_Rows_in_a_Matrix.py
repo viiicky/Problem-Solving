@@ -30,6 +30,7 @@ class Row:
 
 
 class Solution:
+    # Time complexity: O(mn + m logm)
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
         heap = []
         for i in range(k):
